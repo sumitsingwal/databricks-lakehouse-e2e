@@ -19,9 +19,8 @@ Source data is simulated using **Databricks Catalog Volumes**, representing data
 
 ### Bronze Layer (Raw)
 - Ingests data directly from the source Volume
-- Stores raw, append-only data with ingestion metadata
+- Stores raw data
 - No business transformations applied
-- Implemented using Delta tables for scalability and auditability
 
 ### Silver Layer (Clean & Conformed)
 - Cleans and standardises raw data
@@ -31,9 +30,33 @@ Source data is simulated using **Databricks Catalog Volumes**, representing data
 
 ### Gold Layer (Business-Ready)
 - Contains curated datasets optimised for analytics
-- Includes aggregated metrics and business logic
 - Serves as the consumption layer for reporting and dashboards
 
 ### Analysis & Visualisation
 - Gold layer tables are consumed for analysis and reporting
-- Supports BI tools such as Power BI
+
+## Example Analysis – Product Category Contribution to Sales and Profitability (2013)
+
+The Gold layer enables business-focused analysis by providing curated, aggregated metrics.  
+An example analysis was performed to evaluate **product category contribution to sales and profitability for the year 2013**.
+
+### Key Insights
+
+- **Bikes dominate overall performance**, generating over **40M in total sales** and approximately **18.3M in profit**, making it the primary revenue and profit driver.
+- **Accessories outperform Clothing in profitability**, despite lower total sales. Accessories generate around **1.5M in profit**, driven by a relatively higher margin compared to cost.
+- **Clothing is the weakest performing category**, with the **lowest total sales and lowest profit (≈471K)** among all categories.
+- Although Clothing shows a **similar average sales per order** to Accessories, its overall profitability is significantly lower, indicating inefficiencies in pricing, cost structure, or product mix.
+
+### Business Interpretation
+
+- The **Bikes category** represents a stable and high-impact segment and should continue to be a core focus.
+- The **Accessories category** demonstrates strong margin potential and may benefit from increased investment or targeted growth strategies.
+- The **Clothing category is underperforming** and requires further investigation into:
+  - Pricing strategy
+  - Cost optimisation
+  - Supplier or production costs
+  - Marketing effectiveness
+
+### Outcome
+
+This analysis highlights how **Gold layer datasets enable actionable business insights**, supporting data-driven decision-making across product strategy, pricing, and profitability optimisation.
