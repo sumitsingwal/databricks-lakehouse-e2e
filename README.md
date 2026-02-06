@@ -7,9 +7,27 @@ This project implements an **end-to-end data engineering lakehouse architecture 
 
 ![High Level Architecture](./Project_High_Level_Architecture.png)
 
-### Architecture Overview
+## Source Data
 
-The platform is designed to reflect real-world enterprise data platforms where data moves through multiple layers with increasing levels of structure and business readiness.
+The project uses multiple raw CSV files representing operational data from different source systems within a retail sales domain. Each file is treated as an independent upstream data source and ingested without modification.
+
+The raw datasets include:
+
+- **Customer master data** containing customer identifiers, names, demographic attributes, and creation dates
+- **Supplementary customer attributes** provided by external systems, including date of birth, gender, and geographic information
+- **Product master data** containing product identifiers, names, cost information, product line classifications, and effective date ranges
+- **Sales transaction data** capturing order-level details such as order dates, shipping dates, quantities, prices, and sales amounts
+- **Product category reference data** defining product categories, subcategories, and maintenance attributes
+
+The source data exhibits common real-world characteristics, including:
+- Inconsistent identifier formats across systems
+- Mixed date representations
+- Missing or null values in numeric fields
+- Inconsistent categorical values
+- Multiple files contributing to a single business entity
+
+To simulate real-world ingestion patterns, all raw files are first placed into a **Databricks Catalog Volume** and then ingested into the Bronze layer without applying business transformations.
+
 
 ### Source Layer
 Source data is simulated using **Databricks Catalog Volumes**, representing data landing from external systems such as:
@@ -19,7 +37,7 @@ Source data is simulated using **Databricks Catalog Volumes**, representing data
 
 ### Bronze Layer (Raw)
 - Ingests data directly from the source Volume
-- Stores raw data
+- Stores raw data exactly as received from the source
 - No business transformations applied
 
 ### Silver Layer (Clean & Conformed)
