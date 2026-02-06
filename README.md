@@ -40,6 +40,8 @@ Source data is simulated using **Databricks Catalog Volumes**, representing data
 The Gold layer enables business-focused analysis by providing curated, aggregated metrics.  
 An example analysis was performed to evaluate **product category contribution to sales and profitability for the year 2013**.
 
+![Prd_Cat_Sales_Profit](./Prd_Cat_Sales_Profit.png)
+
 ### Key Insights
 
 - **Bikes dominate overall performance**, generating over **40M in total sales** and approximately **18.3M in profit**, making it the primary revenue and profit driver.
